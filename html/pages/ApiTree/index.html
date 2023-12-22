@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Group 104: Course Tree Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="../../media/favicon.ico"/>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="" id="redirectHome"><img src="../../media/backarrow.svg" height="40" width="40"/></a>
+    </div>
+    
+    <div class="header">
+        <h1>Course Mapper</h1>
+        <img src="map.svg" height="300px" width="500px" alt="map">
+        
+        <div class="dropdown" id="treeGenerationDropdown">
+            <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-expanded="false">
+                Select Subject
+            </button>
+
+            <div class="dropdown-menu dropdown-Subject" aria-labelledby="dropdownMenuButton"></div>
+        </div>
+
+    </div>
+
+    <div id="treeContainer"></div>
+    <div id="selectedSubjectContainer" style="color: #fff;"></div>
+    <div id="mynetwork"></div>
+
+    <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>

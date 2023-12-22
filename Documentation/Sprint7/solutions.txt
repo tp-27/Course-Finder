@@ -1,0 +1,32 @@
+Alternative solutions for lower runtime:
+
+- B-TREE
+
+	- create a B-TREE to search for eligible courses.
+	- contains a logical representation of the prerequisite requirements for parsing
+
+	- O(n log n) search time if tree is already created at time of searching
+	- n represents the number of courses in the database.
+	- For each completed course, we must search the associated tree with every course
+	- Each tree search is log(n), and we do this n times, so runtime is O(nlog(n))
+
+	- Might have to make tree every time the "generate" button is pressed.
+	- This would also O(nlog(n)), but it would still slow down the runtime
+	- We could use session storage to save the tree, so we only have to create it once
+
+- "Eligible" Table
+
+	- We could also create another database table called "Eligible"
+	- As each course is entered, the list of courses the user is eligible to take is dynamically updated in the background
+	- Has 2 columns "Student ID" and "CourseCode", is a mapping between a student (user) and the courses they are eligible to take
+	- Whenever they enter or delete a course, the "Eligible" table is updated
+	- When "Generate" is pressed, the entire table is pulled and returned to the frontend
+
+	- The runtime depends on how fast the whole table can be pulled and returned
+	- A backend call must be made every time a course is entered, may slow down the program during normal user flow
+
+- "Pre-filtering" algorithm (The solution we ended up implementing)
+
+	- Get all courses with prerequisites that contains a user course in the string
+	- This essentially returns a list of courses that we can potentially take, and eliminates a lot of courses from processing
+	- From there, prerequisite matching becomes a lot faster since the amount of courses to process is significantly reduced.

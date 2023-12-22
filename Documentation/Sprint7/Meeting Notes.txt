@@ -1,0 +1,23 @@
+Sprint 7 Meeting Notes
+
+Meeting 1  Nov 7 2023
+
+Time: 1 Hour
+
+- Discussed the tasks listed in the sprint 7 assignment handout
+- Decided which issues to each member will tackle 
+
+
+Meeting 2  Nov 9 2023
+
+Time: 1 Hour
+
+- Reviewed Thomas's front end progress
+- discussed current issues we are facing 
+
+Meeting 3 Nov.12 2023
+Time: 1 Hour
+
+- Ensured that the end product deliverable was working on the VM
+- Merged in all the branches into spint 7
+- Closed issues on Gitlab

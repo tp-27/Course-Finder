@@ -1,0 +1,75 @@
+body {
+    background-color: #1D75DE;
+}
+
+.name {
+    font-size: 100;
+    white-space: nowrap;
+    text-align: center;
+    color: rgb(152, 152, 203);
+    font-family: cursive;
+    border: 5px solid black;
+    background-color: navy;
+    border-radius: 50%;
+}
+
+.sectionHeader {
+    font-size: 50;
+    text-align: center;
+    text-decoration-line: underline;
+}
+
+.section {
+    margin-top: 50px;
+    color: white;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.aboutPoint {
+    font-size: x-large;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.karanvirPic {
+    margin-top: 50px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input {
+    margin-top: 50px;
+    font-size: xx-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.result {
+    margin-top: 50px;
+    font-size: xx-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sectionDescription {
+    margin-top: 50px;
+    font-size: large;
+    margin-left: 30%;
+}
+
+.submitButton {
+    width: 80px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+.sectionText {
+    color: white;
+}

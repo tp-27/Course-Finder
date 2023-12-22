@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prerequisite Parser</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../../media/favicon.ico"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="nav">
+      <a href="" id="redirectHome"><img src="../../media/backarrow.svg" height="40" width="40"/></a>
+    </div>
+    <section class="header d-flex flex-column justify-content-center align-items-center pt-5" role="banner">
+      <h1 class="text-md">Course Finder</h1>
+      <img class="img-fluid" src="./media/person_reading.svg" height="400" width="400" alt="Person reading script" />
+      <hr>
+    </section>
+    
+    <section class="d-flex flex-column justify-content-start align-items-start" id="main-section" role="main"> 
+      <h2 class="steps text-white p">1. Add your completed courses</h2>
+      
+      
+      <!-- Search Button/Input -->
+      <!-- <button id="searchButton">Search</button>
+      <input type="text" id="possibleCoursesSearchInput">
+      <button id="possibleCoursesSearchSubmit">Submit</button>  -->
+
+      <form class="my-2">
+        <div class="d-flex">
+          <input 
+            id="possibleCoursesSearchInput"
+            type="text" 
+            class="form-control me-2"
+            placeholder="Search courses...">
+
+             <!-- class="btn btn-outline-secondary"  -->
+          <button 
+            id="possibleCoursesSearchSubmit"
+            class="btn btn-outline-secondary"
+            type="button">
+            Search
+          </button>
+          <button 
+            id="possibleCoursesRefreshSubmit"
+            class="btn btn-outline-secondary"
+            type="button"
+            style="margin-left: 15px; width: auto; white-space: nowrap;"
+            >
+            Restore Courses
+        </button>
+        </div>
+      </form>
+
+      <div id="possibleCoursesSearchError" class="errorMsg"></div>
+
+      <!-- Entered Courses Table -->
+      <div class="courseTable" id="enteredCoursesTable">
+        <table class="table table-hover align-middle text-center" id="courseList">
+          <thead>
+            <tr class="courseTableHeader">
+              <th scope="col">select</th>
+              <th scope="col">courseCode</th>
+              <th scope="col"class="d-none d-md-table-cell">courseName</th>
+            </tr>
+          </thead>
+          <tbody id="courseListBody">
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="spinner-border text-danger m-5" id="loading"></div>
+
+      <!-- Entered Courses Table -->
+
+      <div class="steps text-white p" id="completedCoursesContainer">
+        <div id="completedCoursesCredits">
+        Your completed courses: (Total Credits: 0, Average: 0)
+        </div>
+        <h5 class="steps text-white p" id="completedCourses"></h5>
+      </div>
+
+      <h2 class="steps text-white">2. Click generate to view eligible courses</h2>
+      <button type="button" class="btn btn-dark btn-lg" id="generateCourses">Generate</button>  
+
+      <!-- ********    TO DO FILTER UI ******** - DAWOUD  -->
+      <button class="btn btn-dark btn-md" id="filters">
+        <i class="fa fa-filter" style="font-size:36px;color:white;background:#212529"></i>
+        Filters
+      </button>
+
+      <div class="categories" id="categories" style="margin-left: 50px; margin-bottom: 50px;">
+        <div class="btn-group">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuSubject" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" style="background:#212529; margin-bottom: 10px; margin-top: 30px">
+            SUBJECT
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuSubject" style="background:#212529; padding: 10px; margin-top: 30px">
+            <div class="subjects" id="subjects">
+              <li style="color:white; background:#212529;">
+                <!-- <div class="form-check form-switch" style="color:white; background:#212529;">
+                  <input class="form-check-input" type="checkbox" id="flexSwitchSubject">
+                      <label class="form-check-label" for="flexSwitchSubject">CIS</label>
+                </div> -->
+              </li>
+            </div>
+          </ul>
+        </div>
+        
+        <div class="btn-group">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuLevel" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" style="background:#212529; margin-bottom: 10px; margin-top: 30px">
+            LEVEL
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLevel" style="background:#212529; padding: 10px;">
+            <div class="courseLevels" id="courseLevels">
+              <li style="color:white; background:#212529;">
+              </li>
+            </div>
+          </ul>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuLevel" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" style="background:#212529; margin-bottom: 10px; margin-top: 30px">
+            CREDITS
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLevel" style="background:#212529; padding: 10px;">
+            <div class="courseCredits" id="courseCredits">
+              <li style="color:white; background:#212529;">
+             </li>
+            </div>
+          </ul>
+        </div>
+
+        <button class="btn btn-dark btn-md" id="applyFilters" style="margin-top: 30px">Apply</button>  
+      </div>
+      <!-- ********    TO DO FILTER UI ******** - DAWOUD  -->
+      
+      <!-- Eligible course table -->
+
+        <div id="eligibleCourseErrorMessage" class="errorMsg"></div>
+
+        <div class="courseTable" id="possibleCoursesTable">
+          <table class="table table-hover align-middle text-center" id="eligibleCourseList">
+            <thead>
+              <tr class="courseTableHeader">
+                <th scope="col">courseCode</th>
+                <th scope="col" class="d-none d-md-table-cell">courseName</th>
+                <th scope="col" class="d-none d-md-table-cell">courseDesc</th>
+                <th scope="col" class="d-none d-md-table-cell">credits</th>
+                <th scope="col" class="d-none d-md-table-cell">location</th>
+                <th scope="col" class="d-none d-md-table-cell">restrictions</th>
+                <th scope="col">delete</th>
+              </tr>
+            </thead>
+            <tbody id="eligibleCourseListBody">
+            </tbody>
+          </table>
+        </div>
+        <button type="button" class="btn btn-dark btn-lg" id="downloadReportBtn" style="margin-bottom: 30px; display: none">Download Report</button>
+      </section>
+
+      <!-- Modal -->
+      <div class="modal fade" id="gradeModal" tabindex="-1" role="dialog" aria-labelledby="gradeModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="gradeModalLabel">Enter Your Final Grade:</h5>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="gradeInput" placeholder="Enter here">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer" background-color= "#1D75DE">
+              <button type="button" class="btn btn-primary" id="saveGradeBtn">Save Grade</button>
+              <button type="button" class="btn btn-secondary" id="closeGrade">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+	  <script type="module" src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>

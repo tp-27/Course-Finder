@@ -1,0 +1,5 @@
+#mynetwork {
+    width: 100%;
+    height: 100vh; /* or more */
+    border: 1px solid lightgray;
+}

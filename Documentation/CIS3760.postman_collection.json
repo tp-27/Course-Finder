@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "2e9da42f-875e-49dd-ac82-4092cbd0db54",
+		"name": "CIS3760",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30667380"
+	},
+	"item": [
+		{
+			"name": "Get Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cis3760f23-04.socs.uoguelph.ca/api/Course/Course.php?preq=CIS*1300",
+					"protocol": "https",
+					"host": [
+						"cis3760f23-04",
+						"socs",
+						"uoguelph",
+						"ca"
+					],
+					"path": [
+						"api",
+						"Course",
+						"Course.php"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Programming",
+							"disabled": true
+						},
+						{
+							"key": "credit",
+							"value": "0.5",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "CIS*1300",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "hello",
+							"disabled": true
+						},
+						{
+							"key": "location",
+							"value": "Guelph",
+							"disabled": true
+						},
+						{
+							"key": "preq",
+							"value": "CIS*1300"
+						},
+						{
+							"key": "restriction",
+							"value": "value",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/api/course/course.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"course",
+						"course.php"
+					],
+					"query": [
+						{
+							"key": "courseName",
+							"value": "CIS1300",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Put Request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://cis3760f23-04.socs.uoguelph.ca/api/Course/Course.php?courseCode=CIS*1350&courseName=Program&courseDesc=code&credits=0.5&location=reyn&restrictions=none",
+					"protocol": "https",
+					"host": [
+						"cis3760f23-04",
+						"socs",
+						"uoguelph",
+						"ca"
+					],
+					"path": [
+						"api",
+						"Course",
+						"Course.php"
+					],
+					"query": [
+						{
+							"key": "courseCode",
+							"value": "CIS*1350"
+						},
+						{
+							"key": "courseName",
+							"value": "Program"
+						},
+						{
+							"key": "courseDesc",
+							"value": "code"
+						},
+						{
+							"key": "credits",
+							"value": "0.5"
+						},
+						{
+							"key": "location",
+							"value": "reyn"
+						},
+						{
+							"key": "restrictions",
+							"value": "none"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

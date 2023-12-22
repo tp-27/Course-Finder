@@ -1,0 +1,29 @@
+Meeting Notes: Meeting 1 October 24 2023 
+
+Time: 1 Hour
+
+- Went over what was done in Sprint 4
+- Dicussed Issues that can be taken on 
+- Discussed any refactoring or changes needed for the Sprint
+- Created issues for Sprint 5
+
+
+Meeting Notes: Meeting 2 October 26 2023
+
+Time: 30 Minutes
+
+- Checked in with Current Sprint 5 and to address any questions and concerns with currnet Tickets
+- Dicussed and created new issues based on new requirements given on October 26 2023
+
+Meeting Notes: Meeting 3 October 28 2023
+Time: 30 Minutes
+- Quick meeting Discussed progress on issues and discussed any questions and concerns
+
+Meeting Notes: Meeting 4 October 29 2023
+Time: 1 hour
+- Final Stretch
+- Merge remaining merge requests
+- Discuss tech debt that may be needed for next sprint
+- Added Slide and closed remaining issues Issues
+- Sync up VM Server with the Gitlab Repo Sprint 5 Branch. 
+- Create final postman collection for Far
